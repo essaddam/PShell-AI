@@ -28,6 +28,20 @@ Set your [OpenAI API key](https://platform.openai.com/api-keys).
 $env:OpenAIKey='[your-key]'
 ```
 
+### Model Configuration
+
+By default, PShell-AI uses `gpt-4o-mini`. You can change the model at any time:
+
+```powershell
+# View the current model
+Get-DefaultModel
+
+# Change the model
+Set-DefaultModel -model gpt-4o
+```
+
+Supported models include: `gpt-3.5-turbo`, `gpt-4`, `gpt-4-turbo`, `gpt-4o`, `gpt-4o-mini`, `gpt-4.1`, `gpt-4.1-mini`, `gpt-4.1-nano`, `o1`, `o1-mini`, `o3`, `o3-mini`, `o4-mini`, and their dated variants.
+
 ## Features
 
 - Generate shell commands from a description.
@@ -36,9 +50,7 @@ $env:OpenAIKey='[your-key]'
 - Auto-extract code from response and copy to clipboard.
 - Follow up to refine command or explanation.
 - Concise, helpful responses.
-<!-- - Fast, syntax-highlighted, minimal UI. -->
-<!-- - Support for [other providers and open source models](#custom-model-configuration-new)! -->
-
+- Configurable AI model selection.
 
 # Enhanced Display
 
@@ -48,7 +60,7 @@ If you install `PwshSpectreConsole` you will get a better display of the respons
 Install-Module PwshSpectreConsole
 ```
 
-![alt text](/media/PwshSpectreConsole.png)
+![alt text](media/PwshSpectreConsole.png)
 
 
 ## Examples
