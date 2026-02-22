@@ -1,3 +1,13 @@
+# V0.3.0
+
+- Add multi-provider support: OpenAI, OpenRouter, and Synthetic
+- Add `Set-AIProvider` and `Get-AIProvider` functions
+- Remove `ValidateSet` from `Set-DefaultModel` for flexible model names across providers
+- Add `Private/Invoke-AIChat.ps1` for direct OpenAI-compatible API calls
+- Fix cross-platform clipboard: replace `clip` with `Set-Clipboard`
+- Add input validation and error handling to `q` function
+- Update model list and documentation
+
 # V0.2.3
 
 - Add support for `PwshSpectreConsole`

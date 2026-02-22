@@ -20,17 +20,52 @@ Install-Module PShell-AI
 
 ### Configuration
 
+PShell-AI supports three AI providers: **OpenAI**, **OpenRouter**, and **Synthetic**.
+
+#### OpenAI (default)
+
 Set your [OpenAI API key](https://platform.openai.com/api-keys).
 
 > **Note**: Make sure you add credits to your account. Otherwise you only get back blank responses.
 
 ```powershell
-$env:OpenAIKey='[your-key]'
+$env:OpenAIKey = '[your-key]'
+```
+
+#### OpenRouter
+
+[OpenRouter](https://openrouter.ai/) gives you access to hundreds of AI models through a single unified API.
+
+```powershell
+$env:OpenRouterKey = '[your-key]'
+Set-AIProvider -Provider OpenRouter
+```
+
+#### Synthetic
+
+[Synthetic](https://synthetic.new/) runs open-source AI models in private, secure datacenters.
+
+```powershell
+$env:SyntheticKey = '[your-key]'
+Set-AIProvider -Provider Synthetic
+```
+
+### Switching Providers
+
+```powershell
+# View current provider and configuration
+Get-AIProvider
+
+# Switch to OpenRouter
+Set-AIProvider -Provider OpenRouter
+
+# Switch back to OpenAI
+Set-AIProvider -Provider OpenAI
 ```
 
 ### Model Configuration
 
-By default, PShell-AI uses `gpt-4o-mini`. You can change the model at any time:
+Each provider has a sensible default model. You can change the model at any time:
 
 ```powershell
 # View the current model
@@ -38,9 +73,15 @@ Get-DefaultModel
 
 # Change the model
 Set-DefaultModel -model gpt-4o
-```
 
-Supported models include: `gpt-3.5-turbo`, `gpt-4`, `gpt-4-turbo`, `gpt-4o`, `gpt-4o-mini`, `gpt-4.1`, `gpt-4.1-mini`, `gpt-4.1-nano`, `o1`, `o1-mini`, `o3`, `o3-mini`, `o4-mini`, and their dated variants.
+# Examples for OpenRouter
+Set-AIProvider -Provider OpenRouter
+Set-DefaultModel -model anthropic/claude-sonnet-4-20250514
+
+# Examples for Synthetic
+Set-AIProvider -Provider Synthetic
+Set-DefaultModel -model hf:meta-llama/Meta-Llama-3.1-70B-Instruct
+```
 
 ## Features
 
@@ -51,6 +92,7 @@ Supported models include: `gpt-3.5-turbo`, `gpt-4`, `gpt-4-turbo`, `gpt-4o`, `gp
 - Follow up to refine command or explanation.
 - Concise, helpful responses.
 - Configurable AI model selection.
+- Multi-provider support: OpenAI, OpenRouter, Synthetic.
 
 # Enhanced Display
 
