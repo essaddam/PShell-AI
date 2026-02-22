@@ -13,7 +13,7 @@ $script:providerDefaults = @{
         DefaultModel = 'openai/gpt-4o-mini'
     }
     Synthetic  = @{
-        BaseUrl      = 'https://api.glhf.chat/v1'
+        BaseUrl      = 'https://api.synthetic.new/openai/v1'
         ApiKeyEnv    = 'SyntheticKey'
         DefaultModel = 'hf:meta-llama/Meta-Llama-3.1-70B-Instruct'
     }
